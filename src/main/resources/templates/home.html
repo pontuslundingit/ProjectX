@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html lang="sv"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout/sidenav">
-
-
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <th:block layout:fragment="extraHead">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    </th:block>
+    <meta charset="UTF-8">
+    <title>Projects</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div layout:fragment="mainContent">
-    <div class="container">
-        <h1>HashCracker</h1>
-    </div>
-    <div>
-        <img src="/images/cracked.png" alt="HashCracker Image" class="img-fluid">
-    </div>
+<h1>Projects</h1>
+<div>
+    <form th:action="@{/api/projects}" method="post">
+        <input type="text" name="name" placeholder="Project Name" required>
+        <textarea name="description" placeholder="Project Description" required></textarea>
+        <select name="status" required>
+            <option value="ongoing">Ongoing</option>
+            <option value="completed">Completed</option>
+        </select>
+        <input type="url" name="link" placeholder="Project Link" required> <!-- Nytt fält för länk -->
+        <button type="submit">Create Project</button>
+    </form>
+</div>
+<div>
+    <h2>Project List</h2>
+    <ul th:each="project : ${projects}">
+        <li th:text="${project.name}">Project Name</li>
+        <a th:href="${project.link}" th:text="${project.link}">Project Link</a> <!-- Visa länk -->
+    </ul>
 </div>
 </body>
 </html>
