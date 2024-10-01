@@ -19,6 +19,9 @@ public class Project {
     private String status;
     private String link;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Long getId() {
         return id;
@@ -66,5 +69,12 @@ public class Project {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
     }
 }
