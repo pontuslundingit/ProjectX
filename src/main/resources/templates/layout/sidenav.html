@@ -7,13 +7,13 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title th:text="${pageTitle}">Portfolio</title>
+    <title th:text="${pageTitle}">Projects</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/sidenav.css">
     <script src="/js/main.js"></script>
 
 
@@ -49,13 +49,13 @@
                 </a>
             </li>
             <li>
-                <a th:href="@{/generator}" th:attrappend="id=${activeFunction=='generator'? 'active' : null}">
-                    <span class="sidebar-text">Generate Hash</span>
+                <a th:href="@{/projects}" th:attrappend="id=${activeFunction=='projects'? 'active' : null}">
+                    <span class="sidebar-text">Projects</span>
                 </a>
             </li>
             <li>
-                <a th:href="@{/cracker}" th:attrappend="id=${activeFunction=='cracker'? 'active' : null}">
-                    <span class="sidebar-text">Crack a Hash</span>
+                <a th:href="@{/projects/new}" th:attrappend="id=${activeFunction=='create-project'? 'active' : null}">
+                    <span class="sidebar-text">Create project</span>
                 </a>
             </li>
         </ul>

@@ -33,38 +33,10 @@ body {
     background-color: aqua;
 }
 
-/* Container for Login Box */
-.container {
-    background-color: rgba(255, 255, 255, 0.9); /* Genomskinlig bakgrund */
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    z-index: 1; /* Framför bakgrunden */
-}
-
 /* Header */
 header {
     text-align: center;
     margin-bottom: 30px;
-}
-
-.welcome-icon {
-    width: 100px;
-    margin-bottom: 20px;
-}
-
-.welcome-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.welcome-text {
-    font-size: 16px;
-    color: #555;
 }
 
 /* Headings */
@@ -90,10 +62,6 @@ h2 {
     transition: background-color 0.3s ease;
 }
 
-.btn i {
-    margin-right: 8px;
-}
-
 .btn:hover {
     background-color: #555;
 }
@@ -101,4 +69,46 @@ h2 {
 /* Additional Spacing */
 .mb-4 {
     margin-bottom: 20px;
+}
+
+
+/* Main content styling */
+main {
+    margin-left: 270px; /* Utrymme för sidenav */
+    padding: 20px; /* Padding för huvudinnehåll */
+    z-index: 1; /* Se till att main ligger ovanför andra element */
+    position: relative; /* Positionera i förhållande till sidan */
+}
+
+.button-container {
+    display: flex; /* Använd flexbox för layout */
+    flex-direction: column; /* Lägg knapparna i kolumn */
+    gap: 15px; /* Avstånd mellan knapparna */
+    margin-top: 20px; /* Utrymme ovanför knapparna */
+}
+
+/* Container for content */
+.container {
+    background-color: white; /* Vit bakgrund för huvudinnehåll */
+    border-radius: 8px; /* Rundade hörn */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+    padding: 30px; /* Padding inuti containern */
+    position: relative; /* Positionera i förhållande till main */
+    z-index: 2; /* Se till att containern ligger ovanför main */
+    max-width: 400px; /* Sätt max bredd på containern */
+    width: 100%; /* Gör den responsiv */
+    margin: 0 auto; /* Centrera containern */
+}
+
+
+
+/* Responsiv design */
+@media (max-width: 768px) {
+    nav {
+        width: 200px; /* Mindre bredd för mindre skärmar */
+    }
+
+    main {
+        margin-left: 200px; /* Justera marginal för mindre skärmar */
+    }
 }

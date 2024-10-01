@@ -1,30 +1,32 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout/sidenav" lang="en"> <!-- layout:decorate placeras i rot-`html`-taggen -->
+
 <head>
     <meta charset="UTF-8">
-    <title>Projects</title>
-    <link rel="stylesheet" href="/css/style.css">
+    <title>Home - ProjectKeep</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Referens till din CSS-fil -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
+
 <body>
-<h1>Projects</h1>
-<div>
-    <form th:action="@{/api/projects}" method="post">
-        <input type="text" name="name" placeholder="Project Name" required>
-        <textarea name="description" placeholder="Project Description" required></textarea>
-        <select name="status" required>
-            <option value="ongoing">Ongoing</option>
-            <option value="completed">Completed</option>
-        </select>
-        <input type="url" name="link" placeholder="Project Link" required> <!-- Nytt fält för länk -->
-        <button type="submit">Create Project</button>
-    </form>
-</div>
-<div>
-    <h2>Project List</h2>
-    <ul th:each="project : ${projects}">
-        <li th:text="${project.name}">Project Name</li>
-        <a th:href="${project.link}" th:text="${project.link}">Project Link</a> <!-- Visa länk -->
-    </ul>
-</div>
+
+<div class="background-image"></div>
+
+<!-- Huvudinnehåll som ska visas i layouten -->
+<main>
+    <div layout:fragment="mainContent" class="container text-center mt-5"> <!-- layout:fragment -->
+        <h1>Welcome to ProjectKeep</h1>
+        <p>Explore, create or keep track on your projects by clicking the buttons below.</p>
+
+        <!-- Länkar till Projects och Create Project-sidor -->
+        <div class="button-container">
+            <a th:href="@{/projects}" class="btn btn-primary btn-lg">View All Projects</a>
+            <a th:href="@{/projects/new}" class="btn btn-secondary btn-lg">Create New Project</a>
+        </div>
+    </div>
+</main>
 </body>
+
 </html>

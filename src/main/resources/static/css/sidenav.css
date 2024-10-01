@@ -1,0 +1,80 @@
+/* Globala stilar */
+body {
+    font-family: Arial, sans-serif; /* Modern font */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Ljus bakgrundsfärg */
+}
+
+/* Sidenav-stilar */
+nav {
+    width: 250px; /* Bredd på sidenav */
+    height: 100vh; /* Full höjd */
+    background-color: #343a40; /* Mörk bakgrundsfärg för sidenav */
+    color: white; /* Vit text */
+    position: fixed; /* Fästa sidenav */
+    top: 0; /* Sätt nav till toppen av sidan */
+    left: 0; /* Sätt nav till vänster av sidan */
+    padding: 20px 0;
+}
+
+nav .content {
+    padding: 15px; /* Padding i innehållet */
+}
+
+nav .user-card {
+    text-align: center; /* Centrera användarinformation */
+    margin-bottom: 20px; /* Utrymme under användarkort */
+}
+
+nav .user-info p {
+    font-size: 18px; /* Större text för välkomstmeddelande */
+    margin: 0; /* Ta bort marginal */
+}
+
+nav .redbutton {
+    background-color: #dc3545; /* Röd bakgrund för logout-knappen */
+    color: white; /* Vit text */
+    border: none; /* Ingen kantlinje */
+    padding: 10px 15px; /* Padding */
+    border-radius: 5px; /* Rundade hörn */
+    cursor: pointer; /* Handpekare vid hover */
+}
+
+nav .nav-item {
+    list-style: none; /* Ingen punktlista */
+    padding: 0; /* Ingen padding */
+}
+
+nav .nav-item li {
+    margin: 15px 0; /* Utrymme mellan listobjekt */
+}
+
+nav .nav-item a {
+    color: white; /* Vit text för länkar */
+    text-decoration: none; /* Ingen understrykning */
+    display: block; /* Block så att hela området är klickbart */
+    padding: 10px 15px; /* Padding runt länkar */
+    border-radius: 5px; /* Rundade hörn */
+    transition: background 0.3s; /* Animering för hover */
+}
+
+nav .nav-item a:hover {
+    background-color: #495057; /* Mörkare bakgrund vid hover */
+}
+
+nav .nav-item a#active {
+    background-color: #007bff; /* Blå bakgrund för aktiv länk */
+}
+
+main {
+    margin-left: 270px; /* Utrymme för sidenav */
+    padding: 20px; /* Padding för huvudinnehåll */
+}
+
+.container {
+    background-color: white; /* Vit bakgrund för huvudinnehåll */
+    border-radius: 8px; /* Rundade hörn */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Lätt skugga */
+    padding: 30px; /* Padding inuti containern */
+}

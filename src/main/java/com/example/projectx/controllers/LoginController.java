@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
+public class LoginController extends UserModelController{
 
     @GetMapping("/")
     public String loginRedirect() {
@@ -18,18 +18,7 @@ public class LoginController {
 
     @GetMapping("home")
     public String home(Model model) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        if (authentication != null) {
-            Object principal = authentication.getPrincipal();
-
-            if (principal instanceof OAuth2User) {
-                OAuth2User oauthUser = (OAuth2User) principal;
-                String username = oauthUser.getAttribute("login");
-                model.addAttribute("username", username);
-            }
-        }
-
+        addUserToModel(model);
         model.addAttribute("activeFunction", "home");
         return "home";
     }
