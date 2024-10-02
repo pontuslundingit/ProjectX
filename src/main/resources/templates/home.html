@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout/sidenav" lang="en"> <!-- layout:decorate placeras i rot-`html`-taggen -->
+      layout:decorate="layout/sidenav" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,18 +12,22 @@
 
 <body>
 
-<div class="background-image"></div>
+
 
 <!-- Huvudinnehåll som ska visas i layouten -->
 <main>
     <div layout:fragment="mainContent" class="container text-center mt-5"> <!-- layout:fragment -->
-        <h1>Welcome to ProjectKeep</h1>
-        <p>Explore, create or keep track on your projects by clicking the buttons below.</p>
+        <div class="background-image2"></div> <!-- Flyttad här -->
 
-        <!-- Länkar till Projects och Create Project-sidor -->
-        <div class="button-container">
-            <a th:href="@{/projects}" class="btn btn-primary btn-lg">View All Projects</a>
-            <a th:href="@{/projects/new}" class="btn btn-secondary btn-lg">Create New Project</a>
+        <div class="content-wrapper"> <!-- Ny wrapper för att hantera kortinnehållet -->
+            <h1>Welcome to ProjectKeep</h1>
+            <p>Explore, create or keep track on your projects by clicking the buttons below.</p>
+
+            <!-- Länkar till Projects och Create Project-sidor -->
+            <div class="button-container">
+                <a th:href="@{/projects}" class="btn btn-primary btn-lg">View All Projects</a>
+                <a th:href="@{/projects/new}" class="btn btn-secondary btn-lg">Create New Project</a>
+            </div>
         </div>
     </div>
 </main>

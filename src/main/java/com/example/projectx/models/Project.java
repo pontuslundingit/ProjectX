@@ -4,7 +4,6 @@ package com.example.projectx.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 
 @Entity
 @Table(name = "projects")
@@ -17,7 +16,6 @@ public class Project {
     private String description;
     private LocalDateTime createdAt;
     private String status;
-    private String link;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -63,17 +61,10 @@ public class Project {
         this.status = status;
     }
 
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
     public User getUser() {
         return user;
     }
+
     public void setUser(User user) {
         this.user = user;
     }

@@ -4,10 +4,8 @@ package com.example.projectx.services;
 import com.example.projectx.models.Project;
 import com.example.projectx.models.User;
 import com.example.projectx.repository.ProjectRepository;
-import com.example.projectx.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,44 +19,37 @@ public class ProjectService {
 
     @Autowired UserService userService;
 
-    public List<Project> getAllProjects() {
-        return projectRepository.findAll();
-    }
-
     public void createProject(Project project, String username) {
-        User user = userService.registerUserIfNotExists(username); // Registrera användaren om den inte finns
-        project.setUser(user); // Koppla projektet till användaren
-        projectRepository.save(project); // Spara projektet
+        User user = userService.registerUserIfNotExists(username);
+        project.setUser(user);
+        project.setCreatedAt(LocalDateTime.now());
+        projectRepository.save(project);
     }
 
     public List<Project> getProjectsForUser(String username) {
         Optional<User> userOptional = userService.findByUsername(username);
         if (userOptional.isPresent()) {
-            return projectRepository.findByUser(userOptional.get()); // Hämta projekt för den existerande användaren
+            return projectRepository.findByUser(userOptional.get());
         }
-        return new ArrayList<>(); // Returnera en tom lista om användaren inte finns
+        return new ArrayList<>();
     }
 
-
-
-    public Project getProjectById(Long id) {
-        return projectRepository.findById(id).orElse(null);
+    public Optional<Project> getProjectById(Long projectId) {
+        return projectRepository.findById(projectId);
     }
 
-    public Project updateProject(Long id, Project projectDetails) {
-        Project project = projectRepository.findById(id).orElse(null);
-        if (project != null) {
-            project.setName(projectDetails.getName());
-            project.setDescription(projectDetails.getDescription());
-            project.setStatus(projectDetails.getStatus());
-            project.setLink(projectDetails.getLink());
-            return projectRepository.save(project);
-        }
-        return null;
+    public void updateProject(Long projectId, Project updatedProject) {
+        Project project = projectRepository.findById(projectId)
+                .orElseThrow(() -> new RuntimeException("Project not found"));
+        project.setName(updatedProject.getName());
+        project.setDescription(updatedProject.getDescription());
+        project.setStatus(updatedProject.getStatus());
+        project.setCreatedAt(LocalDateTime.now());
+        projectRepository.save(project);
     }
 
-    public void deleteProject(Long id) {
-        projectRepository.deleteById(id);
+    public void deleteProject(Long projectId) {
+        projectRepository.deleteById(projectId);
     }
 
 }

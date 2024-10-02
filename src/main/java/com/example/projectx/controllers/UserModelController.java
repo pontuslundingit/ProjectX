@@ -14,12 +14,10 @@ public abstract class UserModelController {
         if (authentication != null) {
             Object principal = authentication.getPrincipal();
 
-            if (principal instanceof OAuth2User) {
-                OAuth2User oauthUser = (OAuth2User) principal;
+            if (principal instanceof OAuth2User oauthUser) {
                 String username = oauthUser.getAttribute("login");
                 model.addAttribute("username", username);
-            } else if (principal instanceof UserDetails) {
-                UserDetails userDetails = (UserDetails) principal;
+            } else if (principal instanceof UserDetails userDetails) {
                 String username = userDetails.getUsername();
                 model.addAttribute("username", username);
             }
