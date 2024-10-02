@@ -26,9 +26,9 @@ jobs:
 
       - name: Set up environment variables
         run: |
-            echo "PX_DB_URL=${{ secrets.PX_DB_URL }}" >> $GITHUB_ENV
-            echo "PX_DB_USERNAME=${{ secrets.PX_DB_USERNAME }}" >> $GITHUB_ENV
-            echo "PX_DB_PASSWORD=${{ secrets.PX_DB_PASSWORD }}" >> $GITHUB_ENV
+            echo "DATABASE_URL=${{ secrets.PX_DB_URL }}" >> $GITHUB_ENV
+            echo "DATABASE_USERNAME=${{ secrets.PX_DB_USERNAME }}" >> $GITHUB_ENV
+            echo "DATABASE_PASSWORD=${{ secrets.PX_DB_PASSWORD }}" >> $GITHUB_ENV
 
       - name: Grant execute permission for Gradle Wrapper
         run: chmod +x ./gradlew
