@@ -35,6 +35,7 @@ dependencies {
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	annotationProcessor("org.projectlombok:lombok")
+	testImplementation("com.h2database:h2:2.2.224")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.mockito:mockito-junit-jupiter:5.12.0")
 	testImplementation("org.mockito:mockito-core:5.12.0")
