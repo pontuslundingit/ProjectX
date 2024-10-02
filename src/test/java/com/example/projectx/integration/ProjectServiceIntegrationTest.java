@@ -94,7 +94,6 @@ public class ProjectServiceIntegrationTest {
         testUser.setUsername(username);
         userRepository.save(testUser);
 
-
         Project project = new Project();
         project.setName("Old Project Name");
         project.setDescription("Old project description");
